@@ -14,7 +14,7 @@
 #include <Arduino.h>
 
 //display screen (and subscreen) sizing
-#define PIXELS_ACROSS 128      //pixels across x axis (base 2 size expected)
+#define PIXELS_ACROSS 32      //pixels across x axis (base 2 size expected)
 #define PIXELS_DOWN	16      //pixels down y axis
 #define BITSPERPIXEL 1      //1 bit per pixel, use more bits to allow for pwm screen brightness control
 #define BUFFER_SIZE_BYTES	((PIXELS_ACROSS*BITSPERPIXEL/8)*PIXELS_DOWN)
@@ -73,6 +73,7 @@ class RousisMatrix16 {
 public:
   enum {NO_PIN=255};
 
+  bool stop_flag = false;
   byte ScanSynch = 0;
 
   RousisMatrix16(uint8_t pix_x, uint8_t pix_y, byte SDI, byte CLK, byte LE, byte SCLK, byte SLE, byte OE);
